@@ -1,15 +1,17 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from '../components/BarraNavegacion.jsx'
-import Inicio from '../components/Inicio.jsx'
+import BarraNavegacion from './components/BarraNavegacion'
+import PaginaBusqueda from './pages/PaginaBusqueda'
+import PaginaResultados from './pages/PaginaResultados'
 import './App.css'
 
 function App() {
   return (
     <div className="app-wrapper">
-      <Navbar />
+      <BarraNavegacion />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Inicio />} />
+          <Route path="/" element={<PaginaBusqueda />} />
+          <Route path="/resultados" element={<PaginaResultados />} />
         </Routes>
       </main>
     </div>

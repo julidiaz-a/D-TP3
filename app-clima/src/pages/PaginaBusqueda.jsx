@@ -1,15 +1,21 @@
 import { useState } from 'react'
-import './Inicio.css'
+import { useNavigate } from 'react-router-dom'
 
-const POPULAR_CITIES = ['Buenos Aires', 'Madrid', 'Nueva York', 'Londres', 'Tokio', 'París']
+const CIUDADES_POPULARES = ['Buenos Aires', 'Madrid', 'Nueva York', 'Londres', 'Tokio', 'París']
 
-function SearchPage() {
-  const [query, setQuery] = useState('')
+function PaginaBusqueda() {
+  const [consulta, setConsulta] = useState('')
+  const navigate = useNavigate()
 
-  const handleSearch = (e) => {
+  const handleBuscar = (e) => {
     e.preventDefault()
-    // TODO: navegar a /results
-    console.log('Buscar:', query)
+    const texto = consulta.trim()
+    if (!texto) return
+    navigate(`/resultados?q=${encodeURIComponent(texto)}`)
+  }
+
+  const handlePopular = (ciudad) => {
+    navigate(`/resultados?q=${encodeURIComponent(ciudad)}`)
   }
 
   return (
@@ -25,19 +31,19 @@ function SearchPage() {
         </p>
       </div>
 
-      <form className="search-form fade-in fade-in-delay-1" onSubmit={handleSearch}>
+      <form className="search-form fade-in fade-in-delay-1" onSubmit={handleBuscar}>
         <div className="search-input-group">
           <span className="search-input-icon">🔍</span>
           <input
             type="text"
             className="search-input"
             placeholder="Ej: Córdoba, Madrid, Miami..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={consulta}
+            onChange={(e) => setConsulta(e.target.value)}
             autoFocus
           />
         </div>
-        <button type="submit" className="search-btn" disabled={!query.trim()}>
+        <button type="submit" className="search-btn" disabled={!consulta.trim()}>
           Buscar
         </button>
       </form>
@@ -45,9 +51,9 @@ function SearchPage() {
       <div className="search-popular fade-in fade-in-delay-2">
         <p className="search-popular-label">Ciudades populares</p>
         <div className="search-popular-tags">
-          {POPULAR_CITIES.map((city) => (
-            <button key={city} className="search-tag" onClick={() => console.log(city)}>
-              {city}
+          {CIUDADES_POPULARES.map((ciudad) => (
+            <button key={ciudad} className="search-tag" onClick={() => handlePopular(ciudad)}>
+              {ciudad}
             </button>
           ))}
         </div>
@@ -71,4 +77,4 @@ function SearchPage() {
   )
 }
 
-export default SearchPage
+export default PaginaBusqueda

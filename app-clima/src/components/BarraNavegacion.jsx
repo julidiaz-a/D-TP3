@@ -1,14 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
-import '../src/App.css'
 
-function Navbar() {
+function BarraNavegacion() {
   const navigate = useNavigate()
 
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
         <span className="navbar-icon">🌤️</span>
-        <span className="navbar-title">WeatherCast</span>
+        <span className="navbar-title">ClimaApp</span>
       </Link>
       <button className="navbar-home-btn" onClick={() => navigate('/')}>
         Buscar ciudad
@@ -17,4 +16,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default BarraNavegacion
