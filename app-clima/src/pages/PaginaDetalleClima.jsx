@@ -58,9 +58,7 @@ function PaginaDetalleClima() {
             <div className="detail-hero-top">
               <div className="detail-city-info">
                 <h1 className="detail-city-name">{nombreCiudad}</h1>
-                <p className="detail-coords">
-                  {parseFloat(lat).toFixed(4)}, {parseFloat(lon).toFixed(4)}
-                </p>
+              
               </div>
               <div className="detail-hero-right">
                 <span className="detail-big-icon">{infoClima?.icono}</span>

@@ -58,21 +58,6 @@ function PaginaBusqueda() {
           ))}
         </div>
       </div>
-
-      <div className="search-features fade-in fade-in-delay-3">
-        <div className="feature-item">
-          <span className="feature-icon">🌡️</span>
-          <span className="feature-label">Temperatura y sensación</span>
-        </div>
-        <div className="feature-item">
-          <span className="feature-icon">💧</span>
-          <span className="feature-label">Humedad y precipitaciones</span>
-        </div>
-        <div className="feature-item">
-          <span className="feature-icon">📅</span>
-          <span className="feature-label">Pronóstico 7 días</span>
-        </div>
-      </div>
     </div>
   )
 }

@@ -44,7 +44,7 @@ function PaginaResultados() {
   return (
     <div className="results-page">
       <div className="results-header fade-in">
-        <button className="results-back-btn" onClick={() => navigate('/')}>
+        <button className="results-back-btn" onClick={() => navigate(-1)}>
           ← Volver
         </button>
         <h2 className="results-title">
